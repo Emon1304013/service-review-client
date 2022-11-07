@@ -4,9 +4,11 @@ import router from './routes/router';
 
 
 
-function App() {
+function App({children}) {
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router}>
+      {children}
+    </RouterProvider>
   );
 }
 
