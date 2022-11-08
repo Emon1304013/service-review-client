@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import PostReview from "./PostReview";
 import Review from "./Review";
 
 const ServiceDetails = () => {
   const { data } = useLoaderData();
-  const [review,setReview] = useState([])
+  const [reviews,setReviews] = useState([])
+  const [refresh,setRefresh] = useState(false)
   const { _id, serviceName, imgUrl, description, price } = data;
-  console.log(data);
+  useEffect(()=>{
+    fetch(`http://localhost:5000/reviews/${_id}`)
+    .then(res => res.json())
+    .then(data => setReviews(data.data))
+    .catch(err => console.log(err))
+  },[_id,refresh])
   return (
     <div className="my-20">
 
@@ -22,8 +28,18 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <Review></Review>
-      <PostReview></PostReview>
+      <h2 className='text-center text-2xl font-bold'>Customer Reviews</h2>
+
+      {
+        reviews?.map(review => <Review
+        key={review._id}
+        review = {review}
+        ></Review>)
+      }
+      <PostReview 
+      serviceId={_id}
+      refresh={refresh}
+      setRefresh={setRefresh}></PostReview>
     </div>
   );
 };

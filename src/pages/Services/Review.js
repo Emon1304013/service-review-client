@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Review = () => {
+const Review = ({review}) => {
+    console.log(review);
+    const {customerReview} = review;
+    // const{}
     return (
         <div className='my-10'>
-            <h2 className='text-center text-2xl font-bold'>Customer Reviews</h2>
+            {customerReview}
         </div>
     );
 };

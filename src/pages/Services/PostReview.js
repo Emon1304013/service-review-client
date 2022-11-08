@@ -1,15 +1,42 @@
 import { Button, Label, Textarea } from "flowbite-react";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
-const PostReview = () => {
+const PostReview = ({serviceId,setRefresh,refresh}) => {
   const { user } = useContext(AuthContext);
+
+
     const handleAddReview = (event) => {
         event.preventDefault();
         const form = event.target;
         const customerReview = form.customerReview.value;
 
-        console.log(user.email,customerReview);
+        const review = {
+            serviceId,
+            reviewerName : user?.displayName || user?.email,
+            reviewerPhoto : user?.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png',
+            customerReview,
+        }
+
+        fetch('http://localhost:5000/add-review',{
+            method:'POST',
+            headers:{
+                'content-type': 'application/json',
+            },
+            body:JSON.stringify(review)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success(data.message)
+            setRefresh(!refresh)
+            form.reset();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
     }
 
   return (
