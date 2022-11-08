@@ -1,10 +1,12 @@
 import { Button, Label, Textarea } from "flowbite-react";
 import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
 const PostReview = ({serviceId,setRefresh,refresh}) => {
   const { user } = useContext(AuthContext);
+  const location = useLocation()
 
 
     const handleAddReview = (event) => {
@@ -40,10 +42,9 @@ const PostReview = ({serviceId,setRefresh,refresh}) => {
     }
 
   return (
-    <div className="w-1/2 mx-auto">
-      <form onSubmit={handleAddReview} >
+    <div className="w-2/3 lg:w-1/2 mx-auto">
+      {user ? <form onSubmit={handleAddReview} >
         <div className="mb-2 block">
-          <Label htmlFor="comment" value="Your message" />
         </div>
         <Textarea
           name="customerReview"
@@ -53,6 +54,8 @@ const PostReview = ({serviceId,setRefresh,refresh}) => {
         />
       <Button type="submit" className="mx-auto mt-8">Add Review</Button>
       </form>
+      :
+      <div className='text-center text-xl font-bold'>Please <Link to='/login' state={{ from: location }} replace className="underline ">Login</Link> to Post a Review</div>}
     </div>
   );
 };
