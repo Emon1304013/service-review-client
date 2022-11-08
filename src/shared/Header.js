@@ -53,7 +53,7 @@ const Header = () => {
         </Link>
         {user ? (
           <>
-            <Link className="text-xl">
+            <Link className="text-xl" to='/add-service'>
               <Button color="gray">Add Services</Button>
             </Link>
             <Link className="text-xl">
