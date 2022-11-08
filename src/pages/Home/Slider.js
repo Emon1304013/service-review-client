@@ -7,7 +7,7 @@ import cake3 from "../../assets/slider/cake3.jpg";
 const Slider = () => {
   return (
     <div>
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 my-10">
         <Carousel leftControl="left" rightControl="right">
           <img
             src={cake1}
