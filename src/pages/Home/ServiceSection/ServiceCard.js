@@ -1,5 +1,6 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   const { _id, serviceName, imgUrl, description, price } = service;
@@ -16,7 +17,7 @@ const ServiceCard = ({ service }) => {
       </p>
       <div className="flex items-center justify-between">
         <p className="text-xl font-bold">Price: {price}</p>
-        <Button>View Details</Button>
+        <Link to={`/services/${_id}`}><Button >View Details</Button></Link>
       </div>
     </Card>
   );

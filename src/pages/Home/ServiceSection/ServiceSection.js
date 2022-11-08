@@ -1,14 +1,15 @@
-import { Card } from "flowbite-react";
+import { Button, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 
 const ServiceSection = () => {
   const [services,setServices] = useState([]);
 
   useEffect(()=> {
-    fetch('http://localhost:5000/services')
+    fetch('http://localhost:5000/limitedServices')
     .then(res => res.json())
-    .then(data => setServices(data.data))
+    .then(data => {setServices(data.data)})
     .catch(err => console.log(err))
   },[])
   console.log(services);
@@ -26,6 +27,7 @@ const ServiceSection = () => {
           ></ServiceCard>)}
         </div>
       </div>
+      <Link to='/services'><Button className="my-8 mx-auto">View All</Button></Link>
     </div>
   );
 };
