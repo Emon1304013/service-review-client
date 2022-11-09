@@ -1,6 +1,6 @@
 import { Button, Navbar, Tooltip } from "flowbite-react";
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../assets/logo/logo.png";
 import { AuthContext } from "../contexts/UserContext";
@@ -8,6 +8,11 @@ import { AuthContext } from "../contexts/UserContext";
 const Header = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const activeStyle = {
+    backgroundColor:'green',
+    color:'white'
+  };
 
   const handleLogOut = () => {
     logOutUser()
@@ -19,6 +24,7 @@ const Header = () => {
   };
   return (
     <Navbar rounded={true}>
+      <Link to='/'>
       <Navbar.Brand>
         <img
           src={logo}
@@ -29,6 +35,7 @@ const Header = () => {
           ROZA'S FLAVOR FUSION
         </span>
       </Navbar.Brand>
+      </Link>
       <div className="flex md:order-2">
         <Tooltip content={user?.displayName ? user.displayName : "Mr X"}>
           {user?.photoURL ? (
@@ -45,34 +52,50 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Link to="/" className="text-xl">
-          <Button color="gray">Home</Button>
-        </Link>
-        <Link to="/blog" className="text-xl">
-          <Button color="gray">Blog</Button>
-        </Link>
+        <NavLink
+          to="/"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+        >
+          <button>Home</button>
+        </NavLink>
+        <NavLink
+          to="/blog"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+        >
+          <button className="">Blog</button>
+        </NavLink>
         {user ? (
           <>
-            <Link className="text-xl" to='/add-service'>
-              <Button color="gray">Add Services</Button>
-            </Link>
-            <Link className="text-xl" to='/user-reviews'>
-              <Button color="gray">My Reviews</Button>
-            </Link>
-            <Link>
-              <Button color="gray" onClick={handleLogOut}>
+            <NavLink
+              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+              to="/add-service"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <button className="">Add Services</button>
+            </NavLink>
+            <NavLink
+              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+              to="/user-reviews"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <button className="">My Reviews</button>
+            </NavLink>
+            <Link className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white">
+              <button className="" onClick={handleLogOut}>
                 Logout
-              </Button>
+              </button>
             </Link>
           </>
         ) : (
           <>
-            <Link className="text-xl" to="/login">
-              <Button color="gray">Login</Button>
-            </Link>
-            <Link to="/register">
-              <Button color="gray">Register</Button>
-            </Link>
+            <NavLink className="text-xl" to="/login">
+              <button className="bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white">Login</button>
+            </NavLink>
+            <NavLink className="text-xl" to="/register">
+              <button className="bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white">Register</button>
+            </NavLink>
           </>
         )}
       </Navbar.Collapse>
