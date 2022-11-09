@@ -9,6 +9,7 @@ import AddService from "../pages/Services/AddService/AddService";
 import SeriviceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
 import UserReviews from "../pages/UserReviews/UserReviews";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/add-service',
-          element:<AddService></AddService>
+          element:<PrivateRoute><AddService></AddService></PrivateRoute>
         },
         {
           path:'/services',
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/user-reviews',
-          element:<UserReviews></UserReviews>,
+          element:<PrivateRoute><UserReviews></UserReviews></PrivateRoute>
         }
       ]
     }
