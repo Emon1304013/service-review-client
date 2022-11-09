@@ -8,6 +8,7 @@ const AddService = () => {
 
     const {user} = useContext(AuthContext)
     useTitle('Add Service')
+    
     const handleServiceSubmit = event => {
         event.preventDefault();
         const form = event.target;

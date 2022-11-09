@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTitle } from '../../hooks/useTitle';
-import Slider from '../Home/Slider';
+import HeroSection from './HeroSection';
 import ServiceSection from './ServiceSection/ServiceSection';
 
 const Home = () => {
     useTitle('Home')
     return (
         <div>
-            <Slider></Slider>
+            <HeroSection></HeroSection>
             <ServiceSection></ServiceSection>
         </div>
     );
