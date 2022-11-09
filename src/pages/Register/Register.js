@@ -3,9 +3,11 @@ import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
+import { useTitle } from "../../hooks/useTitle";
 
 const Register = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
+  useTitle('Register')
 
   const navigate = useNavigate();
   const location = useLocation();

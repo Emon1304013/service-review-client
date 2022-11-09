@@ -23,7 +23,7 @@ const Header = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <Navbar rounded={true}>
+    <Navbar rounded={true} className="mt-4">
       <Link to='/'>
       <Navbar.Brand>
         <img
@@ -62,27 +62,27 @@ const Header = () => {
         <NavLink
           to="/blog"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-4 lg:mt-0"
         >
           <button className="">Blog</button>
         </NavLink>
         {user ? (
           <>
             <NavLink
-              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-4 lg:mt-0"
               to="/add-service"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <button className="">Add Services</button>
             </NavLink>
             <NavLink
-              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white"
+              className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-4 lg:mt-0"
               to="/user-reviews"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <button className="">My Reviews</button>
             </NavLink>
-            <Link className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white">
+            <Link className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-4 lg:mt-0">
               <button className="" onClick={handleLogOut}>
                 Logout
               </button>

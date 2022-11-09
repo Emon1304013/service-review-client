@@ -2,12 +2,14 @@ import { Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
+import { useTitle } from "../../hooks/useTitle";
 import ReviewDataTable from "./ReviewDataTable";
 
 const UserReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  useTitle('My Reviews')
 
   useEffect(() => {
     fetch(`http://localhost:5000/user-reviews/${user?.email}`,{

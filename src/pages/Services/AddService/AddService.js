@@ -2,10 +2,12 @@ import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../contexts/UserContext";
+import { useTitle } from "../../../hooks/useTitle";
 
 const AddService = () => {
 
     const {user} = useContext(AuthContext)
+    useTitle('Add Service')
     const handleServiceSubmit = event => {
         event.preventDefault();
         const form = event.target;

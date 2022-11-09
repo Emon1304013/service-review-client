@@ -3,9 +3,11 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { AuthContext } from '../../contexts/UserContext';
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { useTitle } from '../../hooks/useTitle';
 
 const Login = () => {
     const { signInUser, googleSignIn,setLoading } = useContext(AuthContext);
+    useTitle('Login')
 
   const navigate = useNavigate();
   const location = useLocation();
