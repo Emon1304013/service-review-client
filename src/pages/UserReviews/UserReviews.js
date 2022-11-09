@@ -10,16 +10,21 @@ const UserReviews = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user-reviews/${user?.email}`)
+    fetch(`http://localhost:5000/user-reviews/${user?.email}`,{
+      headers:{
+        authorization : `Bearer ${localStorage.getItem('auth-token')}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
+        // if()
         setReviews(data.data);
       })
       .catch((err) => console.log(err));
   }, [user?.email, refresh]);
 
   return <>
-  {reviews.length>0 ? 
+  {reviews?.length>0 ? 
   <>
   <Table className="my-10 w-11/12 mx-auto">
       <Table.Head>

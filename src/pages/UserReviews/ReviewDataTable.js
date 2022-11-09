@@ -26,7 +26,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
         reviewerPhoto : user?.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png',
         customerReview: newReview,
     }
-    console.log(updatedReview);
+
 
     fetch(`http://localhost:5000/user-reviews/${id}`,{
         method:"PATCH",
