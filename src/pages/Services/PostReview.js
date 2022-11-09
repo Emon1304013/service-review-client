@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/UserContext";
 
-const PostReview = ({serviceId,setRefresh,refresh}) => {
+const PostReview = ({serviceId,setRefresh,refresh,serviceName}) => {
   const { user } = useContext(AuthContext);
   const location = useLocation()
 
@@ -16,7 +16,9 @@ const PostReview = ({serviceId,setRefresh,refresh}) => {
 
         const review = {
             serviceId,
-            reviewerName : user?.displayName || user?.email,
+            serviceName,
+            reviewerEmail: user?.email,
+            reviewerName : user?.displayName || 'Mr. X',
             reviewerPhoto : user?.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png',
             customerReview,
         }
@@ -42,7 +44,7 @@ const PostReview = ({serviceId,setRefresh,refresh}) => {
     }
 
   return (
-    <div className="w-2/3 lg:w-1/2 mx-auto">
+    <div className="w-2/3 lg:w-1/2 mx-auto mt-8">
       {user ? <form onSubmit={handleAddReview} >
         <div className="mb-2 block">
         </div>

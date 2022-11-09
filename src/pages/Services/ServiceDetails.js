@@ -15,6 +15,8 @@ const ServiceDetails = () => {
       .catch((err) => console.log(err));
   }, [_id, refresh]);
 
+  console.log(reviews);
+
   return (
     <div className="my-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center content-center">
@@ -34,6 +36,8 @@ const ServiceDetails = () => {
         </div>
       </div>
 
+
+    {reviews.length>0 ? <>
       <h2 className="text-center text-2xl font-bold my-10">Customer Reviews</h2>
 
       <div className="w-1/2 mx-auto ">
@@ -41,8 +45,13 @@ const ServiceDetails = () => {
           <Review key={review._id} review={review}></Review>
         ))}
       </div>
+    </>
+    :
+    <p className="text-center text-2xl font-bold my-8">No Reviews available for this Service</p>}
+      
       <PostReview
         serviceId={_id}
+        serviceName={serviceName}
         refresh={refresh}
         setRefresh={setRefresh}
       ></PostReview>

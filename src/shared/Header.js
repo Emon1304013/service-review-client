@@ -56,7 +56,7 @@ const Header = () => {
             <Link className="text-xl" to='/add-service'>
               <Button color="gray">Add Services</Button>
             </Link>
-            <Link className="text-xl">
+            <Link className="text-xl" to='/user-reviews'>
               <Button color="gray">My Reviews</Button>
             </Link>
             <Link>

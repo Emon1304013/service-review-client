@@ -8,6 +8,7 @@ import Register from "../pages/Register/Register";
 import AddService from "../pages/Services/AddService/AddService";
 import SeriviceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
+import UserReviews from "../pages/UserReviews/UserReviews";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
           path:'/services/:id',
           element:<SeriviceDetails></SeriviceDetails>,
           loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+        },
+        {
+          path:'/user-reviews',
+          element:<UserReviews></UserReviews>,
         }
       ]
     }
