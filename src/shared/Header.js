@@ -39,7 +39,7 @@ const Header = () => {
       <div className="flex md:order-2">
         <Tooltip content={user?.displayName ? user.displayName : "Mr X"}>
           {user?.photoURL ? (
-            <img src={user?.photoURL} alt="" className="w-10 rounded-full" />
+            <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
           ) : (
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
