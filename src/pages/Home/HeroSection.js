@@ -1,41 +1,9 @@
-import { Carousel } from "flowbite-react";
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import cake1 from "../../assets/slider/cake1.jpg";
-import cake2 from "../../assets/slider/cake2.jpg";
-import cake3 from "../../assets/slider/cake3.jpg";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    // <div>
-    //   <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 my-10">
-    //     <Carousel leftControl="left" rightControl="right">
-    //       <img
-    //         src={cake1}
-    //         alt="..."
-    //       />
-    //       <img
-    //         src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-    //         alt="..."
-    //       />
-    //       <img
-    //         src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-    //         alt="..."
-    //       />
-    //       <img
-    //         src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-    //         alt="..."
-    //       />
-    //       <img
-    //         src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-    //         alt="..."
-    //       />
-    //     </Carousel>
-    //   </div>
-    // </div>
-
-    //https://assets3.lottiefiles.com/private_files/lf30_jxxmergd.json
 
     <section className="text-gray-800">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">

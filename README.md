@@ -1,6 +1,6 @@
 # ROZA'S FLAVOR FUSION
 
-Live Link: https://rozas-flavor.web.app/
+Live Link: https://rozas-flavor.firebaseapp.com/
 
 # Technologies used
 Front-End: REACT
