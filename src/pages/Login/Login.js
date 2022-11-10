@@ -50,7 +50,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message)
         
       })
       .finally(() => {
@@ -85,7 +85,7 @@ const Login = () => {
   };
 
   return (
-    <div className='h-[50vh] mt-20' >
+    <div className='my-20' >
       <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
       <form
         onSubmit={handleSignIn}

@@ -6,7 +6,7 @@ import { useTitle } from "../../hooks/useTitle";
 import ReviewDataTable from "./ReviewDataTable";
 
 const UserReviews = () => {
-  const { user,setLoading,loading } = useContext(AuthContext);
+  const { user,logOutUser} = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useTitle('My Reviews')
@@ -18,28 +18,23 @@ const UserReviews = () => {
       }
     })
 
-      .then((res) => res.json())
+      .then((res) => {
+        if(res.status === 401 || res.status === 403){
+          return logOutUser();
+        }
+        return res.json()})
       .then((data) => {
         // if()
-        setLoading(false)
         setReviews(data.data);
       })
       .catch((err) => console.log(err));
-  }, [user?.email, refresh]);
+  }, [user?.email, refresh, logOutUser]);
 
   return <>
   {reviews?.length>0 ? 
   <>
 
   <Table className="my-10 w-full lg:w-11/12 mx-auto overflow-auto">
-  {
-                (loading) && 
-                      <Button className="w-2/12 mx-auto my-10">
-                        <Spinner aria-label="Spinner button example" />
-                        <span className="pl-3">Loading...</span>
-                      </Button>
-                  
-            }
       <Table.Head>
         <Table.HeadCell>Service Name</Table.HeadCell>
         <Table.HeadCell className="text-center">Reviews</Table.HeadCell>

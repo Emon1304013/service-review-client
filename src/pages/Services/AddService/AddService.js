@@ -46,7 +46,7 @@ const AddService = () => {
 
 
   return (
-    <div className="flex flex-col gap-4 w-full lg:w-1/2 lg:mx-auto h-[80vh] justify-center">
+    <div className="flex flex-col gap-4 w-full lg:w-1/2 lg:mx-auto my-20 justify-center">
       <form onSubmit={handleServiceSubmit}>
         <div>
           <div className="mb-2 block">
@@ -57,11 +57,6 @@ const AddService = () => {
             required={true}
             color="green"
             name="serviceName"
-            //   helperText={
-            //     <React.Fragment>
-            //       <span className="font-medium">Alright!</span> Username available!
-            //     </React.Fragment>
-            //   }
           />
         </div>
         <div>
