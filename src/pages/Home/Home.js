@@ -3,6 +3,7 @@ import { useTitle } from '../../hooks/useTitle';
 import HeroSection from './HeroSection';
 import ServiceSection from './ServiceSection/ServiceSection';
 import Timeline from './MyTimeline';
+import Stats from './Stats';
 
 const Home = () => {
     useTitle('Home')
@@ -11,6 +12,7 @@ const Home = () => {
             <HeroSection></HeroSection>
             <ServiceSection></ServiceSection>
             <Timeline></Timeline>
+            <Stats></Stats>
         </div>
     );
 };
