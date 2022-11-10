@@ -23,7 +23,7 @@ const Services = () => {
     return (
         
         <div className='my-10'>
-            <h2 className='text-center text-2xl lg:text-4xl uppercase font-bold mb-8'>Services</h2>
+            <h2 className='text-center text-2xl lg:text-5xl mb-8 font-heading text-[#00C1A2] uppercase'>Services</h2>
 
             {
                 (loading) && 

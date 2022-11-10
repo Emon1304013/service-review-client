@@ -5,8 +5,8 @@ import React from "react";
 const MyTimeline = () => {
   return (
     <div>
-      <h2 className="text-center text-xl lg:text-3xl font-bold my-8">My Journey</h2>
       <section className="bg-gray-800 text-gray-100 mx-8 rounded-lg mb-8">
+      <h2 className="text-center text-2xl lg:text-5xl font-bold pt-8 font-heading text-[#00C1A2] uppercase">My Journey</h2>
       <div className="container px-4 py-16 mx-auto space-y-8 lg:max-w-3xl">
         <div className="space-y-8">
           <div>

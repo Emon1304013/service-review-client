@@ -11,8 +11,8 @@ const Review = ({ review }) => {
         {customerReview}
       </h5>
       <div className="flex items-center">
-        <img src={reviewerPhoto} className="w-10 rounded-full" alt="" />
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <img src={reviewerPhoto} className="w-12 h-12 rounded-full" alt="" />
+        <p className="text-gray-700 dark:text-gray-400 ml-4 text-xl font-bold">
           {reviewerName}
         </p>
       </div>

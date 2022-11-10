@@ -59,7 +59,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setRefresh(!false);
+          setRefresh(!refresh);
           toast.success(`${data.message}`);
         });
     }

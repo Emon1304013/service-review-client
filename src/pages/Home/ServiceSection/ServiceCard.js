@@ -8,8 +8,10 @@ const ServiceCard = ({ service }) => {
 
   return (
     <PhotoProvider>
+      <Card>
       <PhotoView src={imgUrl}>
-      <Card imgSrc={imgUrl}>
+        <img src={imgUrl} alt=""/>
+        </PhotoView>
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {serviceName}
       </h5>
@@ -23,7 +25,7 @@ const ServiceCard = ({ service }) => {
         <Link to={`/services/${_id}`}><Button size="lg" gradientDuoTone="cyanToBlue" className="font-large">View Details</Button></Link>
       </div>
       </Card>
-      </PhotoView>
+     
       
     </PhotoProvider>
     

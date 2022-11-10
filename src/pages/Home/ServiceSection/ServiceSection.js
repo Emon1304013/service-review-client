@@ -15,7 +15,7 @@ const ServiceSection = () => {
   console.log(services);
   return (
     <div className="mb-8">
-      <h2 className="text-2xl lg:text-5xl text-center font-serif mb-8">
+      <h2 className="text-2xl lg:text-5xl text-center mb-8 font-heading text-[#00C1A2] uppercase">
         My Services
       </h2>
 

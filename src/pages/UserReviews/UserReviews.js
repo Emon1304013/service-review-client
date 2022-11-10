@@ -6,7 +6,7 @@ import { useTitle } from "../../hooks/useTitle";
 import ReviewDataTable from "./ReviewDataTable";
 
 const UserReviews = () => {
-  const { user,logOutUser} = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useTitle('My Reviews')
@@ -18,17 +18,13 @@ const UserReviews = () => {
       }
     })
 
-      .then((res) => {
-        if(res.status === 401 || res.status === 403){
-          return logOutUser();
-        }
-        return res.json()})
+      .then((res) => res.json())
       .then((data) => {
         // if()
         setReviews(data.data);
       })
       .catch((err) => console.log(err));
-  }, [user?.email, refresh, logOutUser]);
+  }, [user?.email, refresh]);
 
   return <>
   {reviews?.length>0 ? 

@@ -8,6 +8,8 @@ const AddService = () => {
 
     const {user} = useContext(AuthContext)
     useTitle('Add Service')
+    const date = new Date();
+    console.log(date);
 
     const handleServiceSubmit = event => {
         event.preventDefault();
@@ -23,6 +25,7 @@ const AddService = () => {
             description,
             price,
             imgUrl,
+            created:date
         }
 
         fetch('https://roza-fusion-server.vercel.app/add-service',{
