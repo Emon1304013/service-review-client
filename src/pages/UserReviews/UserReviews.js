@@ -1,4 +1,4 @@
-import { Table } from "flowbite-react";
+import { Button, Spinner, Table } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
@@ -6,7 +6,7 @@ import { useTitle } from "../../hooks/useTitle";
 import ReviewDataTable from "./ReviewDataTable";
 
 const UserReviews = () => {
-  const { user} = useContext(AuthContext);
+  const { user,loading} = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useTitle('My Reviews')
@@ -20,14 +20,20 @@ const UserReviews = () => {
 
       .then((res) => res.json())
       .then((data) => {
-        // if()
         setReviews(data.data);
       })
       .catch((err) => console.log(err));
   }, [user?.email, refresh]);
 
+  if (loading) {
+      <Button className="w-2/12 mx-auto my-10">
+        <Spinner aria-label="Spinner button example" />
+        <span className="pl-3">Loading...</span>
+      </Button>
+  }
+
   return <>
-  {reviews?.length>0 ? 
+  {reviews?.length ? 
   <>
 
   <Table className="my-10 w-full lg:w-11/12 mx-auto overflow-auto">
