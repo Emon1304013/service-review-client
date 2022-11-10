@@ -27,7 +27,7 @@ const Login = () => {
         }
         toast.success("User Logged In successfully")
 
-        //GET jwt token from server
+        //Get JWT Token from server and verify user
 
         fetch('https://roza-fusion-server.vercel.app/jwt',{
           method:"POST",
@@ -65,6 +65,7 @@ const Login = () => {
       const currentUser = {
         email: user?.email,
       }
+      //Get JWT Token from server and verify user
       fetch('https://roza-fusion-server.vercel.app/jwt',{
           method:"POST",
           headers:{

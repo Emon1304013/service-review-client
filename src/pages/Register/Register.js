@@ -29,15 +29,36 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser  = {
+          email:user?.email,
+        }
+
+        //Get JWT Token from server and verify user
+        fetch('https://roza-fusion-server.vercel.app/jwt',{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+          toast.success("Logged In successfully")
+          localStorage.setItem('auth-token',data.token)
+          navigate(from, { replace: true });
+        })
+        .catch(err => {
+          toast.error(err);
+        })
+
         updateUserProfile(userName, userPhoto)
           .then((result) => {
             console.log(result);
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err);
           });
 
-        console.log(user);
         toast.success("User registered successfully");
         form.reset();
       })
@@ -51,6 +72,8 @@ const Register = () => {
       const currentUser = {
         email: result.user?.email,
       }
+
+      //Get JWT Token from server and verify user
       fetch('https://roza-fusion-server.vercel.app/jwt',{
           method:"POST",
           headers:{
