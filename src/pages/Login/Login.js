@@ -97,7 +97,7 @@ const Login = () => {
 
   return (
     <div className='my-20' >
-      <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
+      <div className="w-11/12 lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
       <form
         onSubmit={handleSignIn}
         className="flex flex-col gap-4"
@@ -128,7 +128,7 @@ const Login = () => {
           />
         </div>
         
-        <Button type="submit" className="w-1/2 mx-auto">
+        <Button type="submit" className="w-11/12 mx-4 lg:w-1/2 lg:mx-auto">
           Login
         </Button>
       </form>
@@ -136,7 +136,7 @@ const Login = () => {
         onClick={handleGoogleSignin}
         color="success"
         type="submit"
-        className="w-1/2 mx-auto my-4"
+        className="w-11/12 mx-4 lg:w-1/2 lg:mx-auto my-4"
       >
         Login Using Google
       </Button>

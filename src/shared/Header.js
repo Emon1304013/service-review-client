@@ -36,7 +36,7 @@ const Header = () => {
         </span>
       </Navbar.Brand>
       </Link>
-      <div className="flex md:order-2">
+      <div className="flex md:order-2 gap-2">
         <Tooltip content={user?.displayName ? user.displayName : "Mr X"}>
           {user?.photoURL ? (
             <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
@@ -51,7 +51,7 @@ const Header = () => {
 
         <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
+      <Navbar.Collapse >
         <NavLink
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -62,7 +62,7 @@ const Header = () => {
         <NavLink
           to="/blog"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-4 lg:mt-0"
+          className="text-xl bg-gray-100 px-3 py-2 rounded-lg border-2 hover:bg-green-600 hover:text-white sm:mt-8 lg:mt-0"
         >
           <button className="">Blog</button>
         </NavLink>

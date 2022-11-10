@@ -108,7 +108,7 @@ const Register = () => {
 
   return (
     <div className="my-20">
-      <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
+      <div className="w-11/12 lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
         <form onSubmit={handleRegister} className="flex flex-col gap-4">
           <div>
             <div className="mb-2 block">
@@ -173,7 +173,7 @@ const Register = () => {
               name="confirm"
             />
           </div>
-          <Button type="submit" className="w-1/2 mx-auto">
+          <Button type="submit" className="w-11/12 mx-4 lg:w-1/2 lg:mx-auto">
             Register
           </Button>
         </form>
@@ -181,7 +181,7 @@ const Register = () => {
           onClick={handleGoogleSignin}
           color="success"
           type="submit"
-          className="w-1/2 mx-auto my-4"
+          className="w-11/12 mx-4 lg:w-1/2 lg:mx-auto my-4"
         >
           Register Using Google
         </Button>
