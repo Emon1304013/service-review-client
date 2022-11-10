@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { AuthContext } from '../../contexts/UserContext';
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useTitle } from '../../hooks/useTitle';
 
 const Login = () => {
-    const { signInUser, googleSignIn,setLoading } = useContext(AuthContext);
+    const { signInUser, googleSignIn,setLoading,loading } = useContext(AuthContext);
     useTitle('Login')
 
   const navigate = useNavigate();
@@ -85,6 +85,15 @@ const Login = () => {
         })
     });
   };
+
+  if (loading) {
+    return (
+      <Button className="w-2/12 mx-auto my-10">
+        <Spinner aria-label="Spinner button example" />
+        <span className="pl-3">Loading...</span>
+      </Button>
+    );
+  }
 
   return (
     <div className='my-20' >

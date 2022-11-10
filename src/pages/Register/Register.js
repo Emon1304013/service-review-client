@@ -1,4 +1,4 @@
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useContext} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/UserContext";
 import { useTitle } from "../../hooks/useTitle";
 
 const Register = () => {
-  const { createUser, googleSignIn, updateUserProfile,setLoading } =
+  const { createUser, googleSignIn, updateUserProfile,setLoading,loading } =
     useContext(AuthContext);
   useTitle("Register");
 
@@ -66,6 +66,15 @@ const Register = () => {
         toast.error(error.message);
       });
   };
+
+    if (loading) {
+    return (
+      <Button className="w-2/12 mx-auto my-10">
+        <Spinner aria-label="Spinner button example" />
+        <span className="pl-3">Loading...</span>
+      </Button>
+    );
+  }
 
   const handleGoogleSignin = () => {
     googleSignIn().then((result) => {
