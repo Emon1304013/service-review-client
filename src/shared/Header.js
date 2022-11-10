@@ -1,4 +1,4 @@
-import { Button, Navbar, Tooltip } from "flowbite-react";
+import { Navbar, Tooltip } from "flowbite-react";
 import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
