@@ -40,7 +40,7 @@ const ServiceDetails = () => {
     {reviews.length>0 ? <>
       <h2 className="text-center text-2xl font-bold my-10">Customer Reviews</h2>
 
-      <div className="w-1/2 mx-auto ">
+      <div className="w-full lg:w-1/2 mx-8 lg:mx-auto">
         {reviews?.map((review) => (
           <Review key={review._id} review={review}></Review>
         ))}

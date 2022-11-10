@@ -49,7 +49,7 @@ const AddService = () => {
 
 
   return (
-    <div className="flex flex-col gap-4 w-full lg:w-1/2 lg:mx-auto my-20 justify-center">
+    <div className="flex flex-col gap-4 w-full mx-8 lg:w-1/2 lg:mx-auto my-20 justify-center">
       <form onSubmit={handleServiceSubmit}>
         <div>
           <div className="mb-2 block">
