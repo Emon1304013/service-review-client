@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/UserContext';
 import { useTitle } from '../../hooks/useTitle';
 import ServiceCard from '../Home/ServiceSection/ServiceCard';
 
 const Services = () => {
+    const { setLoading } = useContext(AuthContext)
     const [services,setServices] = useState([]);
     useTitle('Our Services')
 
     useEffect(()=> {
+        setLoading(true)
         fetch('https://roza-fusion-server.vercel.app/services')
         .then(res => res.json())
-        .then(data => {setServices(data.data)})
+        .then(data => {
+            setServices(data.data)
+            setLoading(false)
+        })
         .catch(err => console.log(err))
       },[])
       console.log(services);

@@ -6,12 +6,13 @@ import { useTitle } from "../../hooks/useTitle";
 import ReviewDataTable from "./ReviewDataTable";
 
 const UserReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user,setLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useTitle('My Reviews')
 
   useEffect(() => {
+    
     fetch(`https://roza-fusion-server.vercel.app/user-reviews/${user?.email}`,{
       headers:{
         authorization : `Bearer ${localStorage.getItem('auth-token')}`
@@ -28,14 +29,11 @@ const UserReviews = () => {
   return <>
   {reviews?.length>0 ? 
   <>
-  <Table className="my-10 w-11/12 mx-auto">
+  <Table className="my-10 w-full lg:w-11/12 mx-auto overflow-auto">
       <Table.Head>
         <Table.HeadCell>Service Name</Table.HeadCell>
         <Table.HeadCell className="text-center">Reviews</Table.HeadCell>
         <Table.HeadCell>Action</Table.HeadCell>
-        <Table.HeadCell>
-          <span className="sr-only">Edit</span>
-        </Table.HeadCell>
       </Table.Head>
       <Table.Body className="divide-y">
         {reviews?.map((review) => <ReviewDataTable
@@ -51,7 +49,7 @@ const UserReviews = () => {
     </Table>
     </> : 
     <p className="text-center font-bold text-2xl my-10">
-      No Reviews Available. <Link className="underline" to='/'>Please Review</Link>
+      No Reviews Available. <Link className="underline" to='/services'>Please Review</Link>
     </p>}
   
   </>;

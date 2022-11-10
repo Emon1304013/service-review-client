@@ -74,8 +74,9 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
       </Table.Cell>
       <Table.Cell className="flex flex-col gap-2">
 
+      
         <React.Fragment>
-          <Button className="px-3 py-1 text-xl font-bold" onClick={()=>setVisible(true)}>Edit</Button>
+          <Button className="px-3 py-1 text-xl font-bold" onClick={()=>setVisible(true)} gradientMonochrome="success" size="lg">Edit</Button>
           <Modal show={visible} size="md" popup={true} onClose={()=>setVisible(false)}>
             <Modal.Header />
             <Modal.Body>

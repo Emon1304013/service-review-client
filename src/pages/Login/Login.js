@@ -61,12 +61,32 @@ const Login = () => {
 
   const handleGoogleSignin = () => {
     googleSignIn().then((result) => {
+      const user = result.user;
+      const currentUser = {
+        email: user?.email,
+      }
+      fetch('https://roza-fusion-server.vercel.app/jwt',{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          localStorage.setItem('auth-token',data.token)
+        })
+        .catch(err => {
+          console.log(err);
+        })
       navigate(from, { replace: true });
     });
   };
 
   return (
-    <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
+    <div className='h-[50vh] mt-20' >
+      <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
       <form
         onSubmit={handleSignIn}
         className="flex flex-col gap-4"
@@ -109,6 +129,7 @@ const Login = () => {
       >
         Login Using Google
       </Button>
+    </div>
     </div>
   );
 };

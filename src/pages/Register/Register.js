@@ -19,6 +19,10 @@ const Register = () => {
     // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirm = form.confirm.value;
+    if(password !== confirm){
+     return toast.error("Password Didn't Match")
+    }
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -38,11 +42,25 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
+    <div className="h-[90vh] mt-20">
+      <div className="w-full lg:w-1/2 mx-4 lg:mx-auto bg-gray-200 p-4 rounded-xl">
       <form
         onSubmit={handleRegister}
         className="flex flex-col gap-4"
       >
+        <div>
+          <div className="mb-2 block">
+            <Label value="Your Name" />
+          </div>
+          <TextInput
+            type="text"
+            placeholder="John Doe"
+            required={true}
+            shadow={true}
+            name="name"
+          />
+        </div>
+
         <div>
           <div className="mb-2 block">
             <Label value="Your email" />
@@ -56,6 +74,20 @@ const Register = () => {
             name="email"
           />
         </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label value="Your Photo URL" />
+          </div>
+          <TextInput
+            type="text"
+            placeholder="Photo URL"
+            required={true}
+            shadow={true}
+            name="photo"
+          />
+        </div>
+
         <div>
           <div className="mb-2 block">
             <Label htmlFor="password2" value="Your password" />
@@ -73,10 +105,10 @@ const Register = () => {
             <Label htmlFor="repeat-password" value="Repeat password" />
           </div>
           <TextInput
-            id="repeat-password"
             type="password"
             required={true}
             shadow={true}
+            name="confirm"
           />
         </div>
         <Button type="submit" className="w-1/2 mx-auto">
@@ -91,6 +123,7 @@ const Register = () => {
       >
         Register Using Google
       </Button>
+    </div>
     </div>
   );
 };

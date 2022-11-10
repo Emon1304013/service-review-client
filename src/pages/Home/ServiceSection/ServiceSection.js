@@ -16,7 +16,7 @@ const ServiceSection = () => {
   return (
     <div className="mb-8">
       <h2 className="text-2xl lg:text-5xl text-center font-serif mb-8">
-        Our Services
+        My Services
       </h2>
 
       <div>
@@ -27,7 +27,8 @@ const ServiceSection = () => {
           ></ServiceCard>)}
         </div>
       </div>
-      <Link to='/services'><Button className="my-8 mx-auto">View All</Button></Link>
+      <Link to='/services'><Button
+      gradientDuoTone="greenToBlue" size="xl" className="my-8 w-2/12 mx-auto">View All</Button></Link>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const ServiceCard = ({ service }) => {
       </p>
       <div className="flex items-center justify-between">
         <p className="text-xl font-bold">Price: {price}</p>
-        <Link to={`/services/${_id}`}><Button >View Details</Button></Link>
+        <Link to={`/services/${_id}`}><Button size="lg" gradientDuoTone="cyanToBlue" className="font-large">View Details</Button></Link>
       </div>
       </Card>
       </PhotoView>
