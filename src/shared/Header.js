@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const activeStyle = {
-    backgroundColor:'green',
+    backgroundColor:'#00C6C5',
     color:'white'
   };
 
