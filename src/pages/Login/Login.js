@@ -75,12 +75,13 @@ const Login = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
+          toast.success("Logged In successfully")
           localStorage.setItem('auth-token',data.token)
+          navigate(from, { replace: true });
         })
         .catch(err => {
           console.log(err);
         })
-      navigate(from, { replace: true });
     });
   };
 
