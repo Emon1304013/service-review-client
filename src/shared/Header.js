@@ -23,7 +23,7 @@ const Header = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <Navbar rounded={true} className="mt-4">
+    <Navbar rounded={true} className="py-8 sticky top-0 z-50 shadow-lg" >
       <Link to='/'>
       <Navbar.Brand>
         <img
