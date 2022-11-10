@@ -9,7 +9,6 @@ const AddService = () => {
     const {user} = useContext(AuthContext)
     useTitle('Add Service')
     const date = new Date();
-    console.log(date);
 
     const handleServiceSubmit = event => {
         event.preventDefault();

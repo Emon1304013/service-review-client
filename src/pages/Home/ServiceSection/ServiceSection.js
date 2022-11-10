@@ -12,7 +12,6 @@ const ServiceSection = () => {
     .then(data => {setServices(data.data)})
     .catch(err => console.log(err))
   },[])
-  console.log(services);
   return (
     <div className="mb-8">
       <h2 className="text-2xl lg:text-5xl text-center mb-8 font-heading text-[#00C1A2] uppercase">

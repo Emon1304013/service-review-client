@@ -1,5 +1,6 @@
 import { Button, Spinner } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/UserContext';
 import { useTitle } from '../../hooks/useTitle';
 import ServiceCard from '../Home/ServiceSection/ServiceCard';
@@ -17,9 +18,9 @@ const Services = () => {
             setServices(data.data)
             setLoading(false)
         })
-        .catch(err => console.log(err))
+        .catch(err => toast.error(err))
       },[setLoading])
-      console.log(services);
+
     return (
         
         <div className='my-10'>
