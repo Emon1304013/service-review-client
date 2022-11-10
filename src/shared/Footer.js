@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo/logo.png'
 
 const Footer = () => {
+  const date = new Date();
+  const year = date.getFullYear()
     return (
         <div>
       <footer className={`p-4 shadow-lg md:px-20 md:py-8 border`}>
@@ -40,7 +42,7 @@ const Footer = () => {
         <hr className="my-6 border-gray-400 sm:mx-auto dark:border-white lg:my-8" />
         <div className="text-center">
         <span className="block text-sm sm:text-center dark:text-white">
-          ©2022
+          ©{year}
           <span className="hover:underline font-bold font-serif"> ROZA'S FLAVOR FUSION</span>. All Rights
           Reserved.
         </span>
