@@ -8,7 +8,7 @@ const AddService = () => {
 
     const {user} = useContext(AuthContext)
     useTitle('Add Service')
-    
+
     const handleServiceSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -25,7 +25,7 @@ const AddService = () => {
             imgUrl,
         }
 
-        fetch('http://localhost:5000/add-service',{
+        fetch('https://roza-fusion-server.vercel.app/add-service',{
             method:'POST',
             headers:{
                 'content-type': 'application/json',

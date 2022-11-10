@@ -12,7 +12,7 @@ const UserReviews = () => {
   useTitle('My Reviews')
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user-reviews/${user?.email}`,{
+    fetch(`https://roza-fusion-server.vercel.app/user-reviews/${user?.email}`,{
       headers:{
         authorization : `Bearer ${localStorage.getItem('auth-token')}`
       }

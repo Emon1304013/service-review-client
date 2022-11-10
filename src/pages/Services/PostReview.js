@@ -23,7 +23,7 @@ const PostReview = ({serviceId,setRefresh,refresh,serviceName}) => {
             customerReview,
         }
 
-        fetch('http://localhost:5000/add-review',{
+        fetch('https://roza-fusion-server.vercel.app/add-review',{
             method:'POST',
             headers:{
                 'content-type': 'application/json',

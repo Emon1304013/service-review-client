@@ -29,7 +29,7 @@ const Login = () => {
 
         //GET jwt token from server
 
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://roza-fusion-server.vercel.app/jwt',{
           method:"POST",
           headers:{
             'content-type':'application/json'

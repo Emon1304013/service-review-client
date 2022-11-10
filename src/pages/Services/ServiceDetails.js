@@ -9,7 +9,7 @@ const ServiceDetails = () => {
   const [refresh, setRefresh] = useState(false);
   const { _id, serviceName, imgUrl, description, price } = data;
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    fetch(`https://roza-fusion-server.vercel.app/reviews/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data.data))
       .catch((err) => console.log(err));

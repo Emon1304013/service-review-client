@@ -7,7 +7,7 @@ const Services = () => {
     useTitle('Our Services')
 
     useEffect(()=> {
-        fetch('http://localhost:5000/services')
+        fetch('https://roza-fusion-server.vercel.app/services')
         .then(res => res.json())
         .then(data => {setServices(data.data)})
         .catch(err => console.log(err))

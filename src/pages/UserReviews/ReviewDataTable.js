@@ -28,7 +28,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
     }
 
 
-    fetch(`http://localhost:5000/user-reviews/${id}`,{
+    fetch(`https://roza-fusion-server.vercel.app/user-reviews/${id}`,{
         method:"PATCH",
         headers:{
             "content-type":"application/json"
@@ -53,7 +53,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure that you want to delete");
     if (confirm) {
-      fetch(`http://localhost:5000/user-reviews/${id}`, {
+      fetch(`https://roza-fusion-server.vercel.app/user-reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
