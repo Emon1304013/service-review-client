@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/UserContext";
 import { useTitle } from "../../hooks/useTitle";
 
 const Register = () => {
-  const { createUser, googleSignIn, updateUserProfile } =
+  const { createUser, googleSignIn, updateUserProfile,setLoading } =
     useContext(AuthContext);
   useTitle("Register");
 
@@ -43,7 +43,7 @@ const Register = () => {
         })
         .then(res => res.json())
         .then(data => {
-          toast.success("Logged In successfully")
+          setLoading(false)
           localStorage.setItem('auth-token',data.token)
           navigate(from, { replace: true });
         })
