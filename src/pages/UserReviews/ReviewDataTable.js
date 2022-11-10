@@ -15,6 +15,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
   const { _id, serviceName,serviceId, customerReview } = review;
   const [visible,setVisible]=useState(false)
   const [newReview,setNewReview] = useState();
+  const date = new Date()
 
   const handleUpdate = id =>{
     setVisible(false);
@@ -25,6 +26,7 @@ const ReviewDataTable = ({ review, refresh, setRefresh }) => {
         reviewerName : user?.displayName || 'Mr. X',
         reviewerPhoto : user?.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png',
         customerReview: newReview,
+        created:date,
     }
 
 

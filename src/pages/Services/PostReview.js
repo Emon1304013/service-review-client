@@ -7,6 +7,7 @@ import { AuthContext } from "../../contexts/UserContext";
 const PostReview = ({serviceId,setRefresh,refresh,serviceName}) => {
   const { user } = useContext(AuthContext);
   const location = useLocation()
+  const date = new Date();
 
 
     const handleAddReview = (event) => {
@@ -21,6 +22,7 @@ const PostReview = ({serviceId,setRefresh,refresh,serviceName}) => {
             reviewerName : user?.displayName || 'Mr. X',
             reviewerPhoto : user?.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png',
             customerReview,
+            created:date,
         }
 
         fetch('https://roza-fusion-server.vercel.app/add-review',{
